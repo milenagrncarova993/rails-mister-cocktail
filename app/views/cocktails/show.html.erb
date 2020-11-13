@@ -2,6 +2,9 @@
 <h2><%= @cocktail.name %></h2>
 
 <ul class="list-group">
+<% if @cocktail.photo.attached?%>
+<%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
 <% @cocktail.doses.each do |dose| %>
 <li class="list-group-item"><%=dose.description %></li>
 <%= link_to '🗑️' , dose_path(dose), method: :delete%>

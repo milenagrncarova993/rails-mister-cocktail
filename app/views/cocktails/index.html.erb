@@ -1,15 +1,46 @@
-
-<h1> Cocktails </h1>
-<div class="cards">
-  <% @cocktails.each do |cocktail| %>
-    <div class="card-category" >
-      <img src= "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80">
-      <div class="card-info">
-        <%= link_to cocktail.name, cocktail_path(cocktail) %> 
-        <%= link_to '🗑️' , cocktail_path(cocktail), method: :delete%>
-      </div>
-    </div>
-  <%end %>
-</div>
-<%= link_to "Add a new cocktail", new_cocktail_path %>
-</div>
+<section class="column left banner">
+      <img 
+        class="banner-img" 
+        src="https://images.unsplash.com/photo-1492934867615-2a451e01c063?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80" 
+        alt="" 
+      />
+  </section>
+    <section class="column right">
+    
+    <article class="content">
+      
+      <h1>
+        The<br/> 
+        cocktail library
+      </h1>
+      
+      <p>
+        A space where you can store all the cocktails you have made
+      </p>
+      
+      <h2>
+        List of all cocktails
+      </h2>
+        <div class="cards">
+          <% @cocktails.each do |cocktail| %>
+            <div class="card-category" >
+            <% if cocktail.photo.attached?%>
+            <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+              <div class="card-info">
+                <%= link_to cocktail.name, cocktail_path(cocktail), class:"text" %> 
+                <%= link_to '🗑️' , cocktail_path(cocktail), method: :delete%>
+              </div>
+            </div>
+          <%end %>
+        </div>
+        </div>
+        <h2>
+        Add to you library
+        </h2>
+      
+        <div class=" button primary">
+        <%= link_to "Create", new_cocktail_path, class: "text1" %>
+        </div>
+  
+  </section>
