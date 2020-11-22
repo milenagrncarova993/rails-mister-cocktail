@@ -24,7 +24,7 @@
             <% end %>
               <div class="card-info">
                 <%= link_to cocktail.name, cocktail_path(cocktail), class:"text" %> 
-                <%= link_to 'X' , cocktail_path(cocktail), method: :delete%>
+                <%= link_to 'X' , cocktail_path(cocktail), method: :delete, class:"btn btn-light"%>
               </div>
             </div>
           <%end %>
