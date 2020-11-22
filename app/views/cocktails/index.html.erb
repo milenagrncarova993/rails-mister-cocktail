@@ -1,19 +1,14 @@
 <section class="column left banner">
-      <img 
-        class="banner-img" 
-        src="https://images.unsplash.com/photo-1492934867615-2a451e01c063?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80" 
-        alt="" 
-      />
+  <img class="banner-img" 
+  src="https://images.unsplash.com/photo-1492934867615-2a451e01c063?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80" 
+  alt=""/>
   </section>
     <section class="column right">
-    
     <article class="content">
-      
       <h1>
         The<br/> 
         cocktail library
-      </h1>
-      
+      </h1> 
       <p>
         A space where you can store all the cocktails you have made
       </p>
@@ -29,18 +24,21 @@
             <% end %>
               <div class="card-info">
                 <%= link_to cocktail.name, cocktail_path(cocktail), class:"text" %> 
-                <%= link_to '🗑️' , cocktail_path(cocktail), method: :delete%>
+                <%= link_to 'X' , cocktail_path(cocktail), method: :delete%>
               </div>
             </div>
           <%end %>
         </div>
         </div>
         <h2>
-        Add to you library
+        Add to your library
         </h2>
       
         <div class=" button primary">
         <%= link_to "Create", new_cocktail_path, class: "text1" %>
         </div>
   
+  
   </section>
+
+
