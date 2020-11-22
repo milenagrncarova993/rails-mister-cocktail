@@ -1,18 +1,24 @@
 
 <h2><%= @cocktail.name %></h2>
 <div class="container mt-5 mb-5">
-  <ul class="list-group">
-    <% if @cocktail.photo.attached?%>
-      <%= cl_image_tag @cocktail.photo.key, height: 500, width: 400, crop: :fill %>
-    <% end %>
-    <% @cocktail.doses.each do |dose| %>
-      <li class="list-group-item"><%=dose.description %></li>
-      <%= link_to '🗑️' , dose_path(dose), method: :delete%>
-      <li class="list-group-item"><%=dose.ingredient.name %></li>
-    <% end %>
-  </ul>
-    <div class="add mb-3 ml-5">
-      <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class:"btn btn-success" %>
-    </div>
-      <%= link_to "Back to the list", cocktails_path %>
+  <div class="list-group">
+    <ul>
+      <div class="picture">
+        <% if @cocktail.photo.attached?%>
+          <%= cl_image_tag @cocktail.photo.key, height: 500, width: 400, crop: :fill %>
+        <% end %>
+      </div>
+      <div class="info">
+      <% @cocktail.doses.each do |dose| %>
+        <%=dose.description %>
+        <%=dose.ingredient.name %>
+        <%= link_to '🗑️' , dose_path(dose), method: :delete%>
+      <% end %>
+      </div>
+    </ul>
+      <div class="add mb-3 ml-5">
+        <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class:"button" %>
+      </div>
+        <%= link_to "Back to the list", cocktails_path %>
+  </div>
 </div>
