@@ -1,5 +1,14 @@
+<div class="container mt-5 mb-5">
+    <h4>Add a dose to <%= @cocktail.name %></h4>
+    <hr>
+    <div>
       <%= simple_form_for [ @cocktail, @dose ] do |f| %>
-      <%= f.input :description, class:"text"%>
+      <%= f.input :description%>
         <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name %>
         <%= f.submit "Add", class: "btn btn-success" %>
       <% end %>
+      <hr>
+    </div>
+
+    <%= link_to "Back to the list", cocktails_path %>
+</div>
