@@ -1,6 +1,6 @@
-<div class= "container">
-<h2> Create your cocktail </h2>
+
 <div class="form">
+<h4> Create your cocktail </h4>
 <%= simple_form_for [@cocktail] do |f| %>
   <%= f.input :name, class:"text" %>
   <%= f.input :photo, as: :file %>
@@ -9,4 +9,3 @@
   <% end %>
   <hr>
   <%= link_to "Back to the list", cocktails_path %>
-</div>
